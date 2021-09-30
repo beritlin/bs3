@@ -97,7 +97,7 @@ if __name__ == '__main__':
     if options.RM_OVERLAP :
         logm("The option \"--rm-overlap\" is specified, thus overlap regions of two mates would be discarded.")
 
-    subprocess.call('samtools view -bS ' + options.infilename + '  | samtools sort - output', shell = True)
+    subprocess.call('samtools view -bS ' + options.infilename + '  | samtools sort -o output,bam', shell = True)
     logm('indexing sorted alignments')
     subprocess.call('samtools index output.bam output.bai', shell = True)
     logm('calculating methylation levels')
